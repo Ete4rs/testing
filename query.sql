@@ -1,0 +1,18 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    TenantID VARCHAR(100) NOT NULL,
+    name VARCHAR(100),
+    email VARCHAR(255) UNIQUE,
+    phone VARCHAR(20)
+);
+
+CREATE TABLE address (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    User_id INT NOT NULL,
+    City VARCHAR(100),
+    State VARCHAR(100),
+    ZipCode VARCHAR(100),
+    Country VARCHAR(100),
+    FOREIGN KEY (User_id) REFERENCES users(id) ON DELETE CASCADE
+)
+
